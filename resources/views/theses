@@ -1,0 +1,40 @@
+Toma poslao za vezbu:
+Aplikacija omogucava vodjenje evidencije o knjigama i autorima. Svaka knjiga ima naslov, autora,
+godinu izdanja, žanr i status (dostupna ili iznajmljena).
+Funkcionalnosti
+1 Kreiranje knjiga i autora.
+2 Pregled svih knjiga sa detaljima.
+3 Pretraga po naslovu i autoru.
+4 Izmena podataka o knjigama i autorima.
+5 Brisanje knjiga i autora.
+
+Tehnologije i pojmovi
+1 Modeli i migracije: Author, Book.
+2 Relacije: Jedan autor više knjiga (one-to-many).
+3 Validacija formi: obavezna polja, jedinstven naslov.
+4 Paginacija za listu knjiga.
+5 Blade šabloni za prikaz i forme.
+6 (opciono) Soft delete za knjige.
+
+Generalno jako dobro odradjeno za sada. Ono sto je moj savet:
+
+Prvo da krenemo od nekih pravila pisanja:
+- Gledaj da se drzis nekog pravila za navodnike, negde koristis ' a negde ", generalno nije veliki problem ali drzi se istog pravila.
+Moj savet jeste single quote
+- Izbegavaj da ostavljas u kodu prazne funkcije, primer averageGrade
+- Commite na GIT-u gledaj da ih imas vise, nemoj samo jedan commit ili 2 i to je to.
+Napravis model i migraciju? Commit, napravis logiku za nesto i gotovo je sistem? Commit itd.. Commiti su ti male celine
+- Miracije su ti OK ali ti fale duzine, stavi duzine stringova.
+- Za brojeve od 0 do 255 koristi slobodno unsignedTinyInt umesto small. Tiny ide do 255 ako je unsigned, a ako nije onda do 127
+
+Inace u novim Laravel verzijama mozes da umesto:
+$table->foreign('driver_id')->references('id')->on('drivers')->cascadeOnDelete();
+
+Uradis
+$table->foreignId('driver_id')->constrained('drivers')->cascadeOnDelete();
+
+Sto se Laravel-a i koda tice:
+- Kod imenovanja name-ova za rute, gledaj da ih prefixiras sa njihovom namenom.
+Recimo ako je za driver-a onda driver.paNesto, primer driver.create, driver.show-edit
+- Isto pravilo vazi i za rute, ako su rute za car onda neka ti budu /car/edit, /car/create etc...
+-
