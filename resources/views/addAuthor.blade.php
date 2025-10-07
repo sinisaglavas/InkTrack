@@ -15,7 +15,7 @@
             <div class="col-6">
                 <form action="{{ route('author.create') }}" method="post">
                     @if($errors->any())
-                        <p class="text-danger">Greska: {{ $errors->first() }}</p>
+                        <p class="text-danger">Error: {{ $errors->first() }}</p>
                     @endif
                     @csrf
                         <label for="name">Name</label>

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveBookRequest;
+use App\Http\Requests\UpdateBookRequest;
 use App\Models\Author;
 use App\Models\Book;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -34,4 +36,20 @@ class BookController extends Controller
 
         return redirect()->back()->with('message', 'A new book has been recorded!');
     }
+
+    public function editBook(Book $book)
+    {
+        $authors = Author::all();
+
+        return view('editBook', compact('book', 'authors'));
+    }
+
+    public function update(UpdateBookRequest $request, Book $book)
+    {
+        $book->update($request->validated());
+
+        return redirect()->back()->with('message', 'A book has been changed!');
+
+    }
+
 }

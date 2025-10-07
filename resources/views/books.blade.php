@@ -27,6 +27,8 @@
                         <th scope="col">Year of publication</th>
                         <th scope="col">Status</th>
                         <th scope="col">Author</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     @foreach($books as $book)
@@ -42,6 +44,8 @@
                                 <td>Not available</td>
                             @endif
                             <td>{{ $book->author->name }} {{ $book->author->last_name }}</td>
+                            <td><a href="{{ route('book.edit', ['book' => $book->id]) }}" class="btn btn-warning" style="height: 20px; width: 40px"></a></td>
+                            <td><a href="" class="btn btn-danger" style="height: 20px; width: 40px"></a></td>
                         </tr>
                         </tbody>
                     @endforeach

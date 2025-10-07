@@ -28,6 +28,9 @@ Route::controller(BookController::class)->prefix('/book')->name('book.')->group(
     Route::get('/all', 'index')->name('all');
     Route::get('/add','addBook')->name('add');
     Route::post('/create','create')->name('create');
+    Route::get('/edit/{book}','editBook')->name('edit');
+    Route::put('/update/{book}', 'update')->name('update');
+
 });
 
 

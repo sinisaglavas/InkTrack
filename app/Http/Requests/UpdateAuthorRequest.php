@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SaveBookRequest extends FormRequest
+class UpdateAuthorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,11 +22,7 @@ class SaveBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'author_id' => 'required|exists:authors,id',
-            'title' => 'required|unique:books|max:191',
-            'year_of_publication' => 'required|integer|min:1500|max:' . date('Y'),
-            'genre' => 'required',
-            'status' => 'required|in:1,0',
+            //
         ];
     }
 }

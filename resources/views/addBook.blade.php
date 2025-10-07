@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    Author Add Form
+    Book Add Form
 @endsection
 
 @section('pageContent')
