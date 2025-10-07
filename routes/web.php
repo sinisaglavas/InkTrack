@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -16,5 +16,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::controller(AuthorController::class)->prefix('/author')->name('author.')->group(function () {
+    Route::get('/all', 'index')->name('all');
+    Route::get('/add','addAuthor')->name('add');
+    Route::post('/create','create')->name('create');
+
+});
+
+Route::controller(BookController::class)->prefix('/book')->name('book.')->group(function () {
+    Route::get('/all', 'index')->name('all');
+});
+
+
+
 
 require __DIR__.'/auth.php';
