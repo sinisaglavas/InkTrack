@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('author_id');
             $table->string('title', '191')->unique();
-            $table->unsignedInteger('year_of_publication')->nullable();
-            $table->string('genre', '64')->nullable();
-            $table->string('status', '20');
+            $table->unsignedInteger('year_of_publication');
+            $table->string('genre', '64');
+            $table->string('status', '1');
             $table->foreign('author_id')->references('id')->on('authors')->cascadeOnDelete();
             $table->timestamps();
         });

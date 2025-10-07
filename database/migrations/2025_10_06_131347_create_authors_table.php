@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', '64');
             $table->string('last_name', '64');
-            $table->unsignedInteger('year_of_birth')->nullable();
+            $table->unsignedInteger('year_of_birth');
             $table->timestamps();
         });
     }

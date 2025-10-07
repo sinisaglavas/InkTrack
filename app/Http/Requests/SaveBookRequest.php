@@ -11,7 +11,7 @@ class SaveBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class SaveBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'author_id' => 'required|exists:authors,id',
+            'title' => 'required|unique:books|max:191',
+            'year_of_publication' => 'required|integer|min:1500|max:' . date('Y'),
+            'genre' => 'required',
+            'status' => 'required|in:1,0',
+
         ];
     }
 }

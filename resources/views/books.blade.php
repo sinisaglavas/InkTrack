@@ -7,6 +7,11 @@
 @section('pageContent')
     <div class="container">
         <div class="row d-flex justify-content-center">
+            <div class="col-2">
+                <a type="button" href="{{ route('book.add') }}" class="btn btn-light btn-sm">Create New Book</a>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
             <div class="col-4">
                 <h1 class="display-2">All books</h1>
             </div>
@@ -31,7 +36,11 @@
                             <td>{{ $book->title }}</td>
                             <td>{{ $book->genre }}</td>
                             <td>{{ $book->year_of_publication }}</td>
-                            <td>{{ $book->status }}</td>
+                            @if( $book->status == 1)
+                                <td>Available</td>
+                            @else
+                                <td>Not available</td>
+                            @endif
                             <td>{{ $book->author->name }} {{ $book->author->last_name }}</td>
                         </tr>
                         </tbody>
