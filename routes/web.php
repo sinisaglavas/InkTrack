@@ -30,7 +30,7 @@ Route::controller(BookController::class)->prefix('/book')->name('book.')->group(
     Route::post('/create','create')->name('create');
     Route::get('/edit/{book}','editBook')->name('edit');
     Route::put('/update/{book}', 'update')->name('update');
-
+    Route::get('/delete/{book}','delete')->name('delete');
 });
 
 

@@ -45,11 +45,10 @@
                             @endif
                             <td>{{ $book->author->name }} {{ $book->author->last_name }}</td>
                             <td><a href="{{ route('book.edit', ['book' => $book->id]) }}" class="btn btn-warning" style="height: 20px; width: 40px"></a></td>
-                            <td><a href="" class="btn btn-danger" style="height: 20px; width: 40px"></a></td>
+                            <td><a href="{{ route('book.delete', ['book' => $book->id]) }}" class="btn btn-danger" style="height: 20px; width: 40px"></a></td>
                         </tr>
                         </tbody>
                     @endforeach
-
                 </table>
             </div>
         </div>

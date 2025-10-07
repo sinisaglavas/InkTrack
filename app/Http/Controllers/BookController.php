@@ -49,7 +49,13 @@ class BookController extends Controller
         $book->update($request->validated());
 
         return redirect()->back()->with('message', 'A book has been changed!');
+    }
 
+    public function delete(Book $book)
+    {
+        $book->delete();
+
+        return redirect()->back();
     }
 
 }
