@@ -6,6 +6,7 @@ use App\Http\Requests\SaveAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 use App\Models\Author;
 use App\Models\Book;
+use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
@@ -51,5 +52,24 @@ class AuthorController extends Controller
         $author->delete();
 
         return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+        $searchData = $request->get('search');
+
+        if ($searchData == '' || $searchData == null) // ili if (count($cities) == 0)
+        {
+            return redirect()->back()->with('message', "Enter the author's name or last name!");
+        }
+        $searchAuthors = Author::with('books')->where('name', 'LIKE', "%$searchData%")
+            ->orWhere('last_name', 'LIKE', "%$searchData%")->get();
+
+        if (count($searchAuthors) == 0)
+        {
+            return redirect()->back()->with('message', "Author not found!");
+        }
+
+        return redirect()->route('author.all')->with('searchAuthors', $searchAuthors);
     }
 }

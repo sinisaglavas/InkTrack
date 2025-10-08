@@ -13,6 +13,12 @@
                     <a class="nav-link" href="{{ route('book.all') }}">Books</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" type="button" href="{{ route('author.add') }}">New Author</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" type="button" href="{{ route('book.add') }}">New Book</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>

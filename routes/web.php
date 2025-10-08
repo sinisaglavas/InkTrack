@@ -24,6 +24,7 @@ Route::controller(AuthorController::class)->prefix('/author')->name('author.')->
     Route::get('/edit/{author}','editAuthor')->name('edit');
     Route::put('/update/{author}', 'update')->name('update');
     Route::get('/delete/{author}','delete')->name('delete');
+    Route::post('/search', 'search')->name('search');
 });
 
 Route::controller(BookController::class)->prefix('/book')->name('book.')->group(function () {
@@ -33,6 +34,7 @@ Route::controller(BookController::class)->prefix('/book')->name('book.')->group(
     Route::get('/edit/{book}','editBook')->name('edit');
     Route::put('/update/{book}', 'update')->name('update');
     Route::get('/delete/{book}','delete')->name('delete');
+    Route::post('/search', 'search')->name('search');
 });
 
 

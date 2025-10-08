@@ -58,4 +58,25 @@ class BookController extends Controller
         return redirect()->back();
     }
 
+    public function search(Request $request)
+    {
+        $searchData = $request->get('search');
+
+        if ($searchData == '' || $searchData == null) // ili if (count($cities) == 0)
+        {
+            return redirect()->back()->with('message', "Enter the name, genre or year of publication!");
+        }
+        $searchBooks = Book::where('title', 'LIKE', "%$searchData%")
+            ->orWhere('year_of_publication', 'LIKE', "%$searchData%")
+            ->orWhere('genre', 'LIKE', "%$searchData%")
+            ->get();
+
+        if (count($searchBooks) == 0)
+        {
+            return redirect()->back()->with('message', "Book not found!");
+        }
+
+        return redirect()->route('book.all')->with('searchBooks', $searchBooks);
+    }
+
 }
