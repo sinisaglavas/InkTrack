@@ -25,6 +25,8 @@
                         <th scope="col">First name</th>
                         <th scope="col">Last name</th>
                         <th scope="col">Year of birth</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                     </thead>
                     @foreach($authors as $author)
@@ -34,6 +36,12 @@
                             <td>{{ $author->name }}</td>
                             <td>{{ $author->last_name }}</td>
                             <td>{{ $author->year_of_birth }}</td>
+                            <td><a href="{{ route('author.edit', ['author' => $author->id]) }}" class="btn btn-warning"
+                                   style="height: 20px; width: 40px"></a>
+                            </td>
+                            <td><a href="{{ route('author.delete', ['author' => $author->id]) }}" class="btn btn-danger"
+                                   style="height: 20px; width: 40px"></a>
+                            </td>
                         </tr>
                         </tbody>
                     @endforeach

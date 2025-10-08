@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveAuthorRequest;
+use App\Http\Requests\UpdateAuthorRequest;
 use App\Models\Author;
+use App\Models\Book;
 
 class AuthorController extends Controller
 {
@@ -30,4 +32,24 @@ class AuthorController extends Controller
         return redirect()->back()->with('message', 'A new author has been recorded!');
     }
 
+    public function editAuthor(Author $author)
+    {
+        $books = Book::all();
+
+        return view('editAuthor', compact('author', 'books'));
+    }
+
+    public function update(UpdateAuthorRequest $request, Author $author)
+    {
+        $author->update($request->validated());
+
+        return redirect()->back()->with('message', 'Author has been changed!');
+    }
+
+    public function delete(Author $author)
+    {
+        $author->delete();
+
+        return redirect()->back();
+    }
 }

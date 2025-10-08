@@ -21,7 +21,9 @@ Route::controller(AuthorController::class)->prefix('/author')->name('author.')->
     Route::get('/all', 'index')->name('all');
     Route::get('/add','addAuthor')->name('add');
     Route::post('/create','create')->name('create');
-
+    Route::get('/edit/{author}','editAuthor')->name('edit');
+    Route::put('/update/{author}', 'update')->name('update');
+    Route::get('/delete/{author}','delete')->name('delete');
 });
 
 Route::controller(BookController::class)->prefix('/book')->name('book.')->group(function () {

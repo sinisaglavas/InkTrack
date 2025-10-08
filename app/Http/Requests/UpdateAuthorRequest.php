@@ -11,7 +11,7 @@ class UpdateAuthorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateAuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:64',
+            'last_name' => 'required|string|max:64',
+            'year_of_birth' => 'required',
         ];
     }
 }
