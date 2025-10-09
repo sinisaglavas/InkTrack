@@ -5,6 +5,23 @@
 @endsection
 
 @section('pageContent')
+    <style>
+        .pagination .page-link {
+            color: black !important; /* Boja brojeva */
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #ffc107 !important; /* Boja aktivne stranice */
+            border-color: #ffc107 !important;
+            color: white !important;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: grey !important; /* Boja disable-ovanih linkova */
+        }
+
+    </style>
+
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-6">
@@ -80,6 +97,7 @@
                 </div>
             </div>
         @endif
+        {{ $books->links('pagination::bootstrap-4') }}
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-10">
                 <table class="table">
