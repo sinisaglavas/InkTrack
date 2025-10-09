@@ -36,7 +36,7 @@
         @if(session('searchAuthors'))
             <div class="row d-flex justify-content-center mt-5">
                 <div class="col-6">
-                    <div class="fw-lighter fs-6">Rezultat pretrage:</div>
+                    <div class="fw-lighter fs-6">Search result:</div>
                     <table class="table table-light">
                         <thead>
                         <tr>
