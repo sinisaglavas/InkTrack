@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedInteger('year_of_publication');
             $table->string('genre', '64');
             $table->string('status', '1');
+            $table->softDeletes(); // soft delete - zapis se ne briše fizički iz baze
             $table->foreign('author_id')->references('id')->on('authors')->cascadeOnDelete();
             $table->timestamps();
         });

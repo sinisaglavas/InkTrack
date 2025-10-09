@@ -19,7 +19,7 @@
                 </form>
             </div>
         </div>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center mt-3">
             <div class="col-4">
                 <h1 class="display-2 text-center">All authors</h1>
             </div>

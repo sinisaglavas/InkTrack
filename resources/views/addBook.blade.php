@@ -44,6 +44,7 @@
                                     <option value="Fantasy">Fantasy</option>
                                     <option value="Romance">Romance</option>
                                     <option value="Horror">Horror</option>
+                                    <option value="Drama">Drama</option>
                                 </select>
                             </div>
                         </div>

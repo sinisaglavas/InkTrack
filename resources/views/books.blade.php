@@ -19,7 +19,6 @@
         .pagination .page-item.disabled .page-link {
             color: grey !important; /* Boja disable-ovanih linkova */
         }
-
     </style>
 
     <div class="container">
@@ -36,7 +35,7 @@
                 </form>
             </div>
         </div>
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center mt-3">
             <div class="col-4">
                 <h1 class="display-2 text-center">All books</h1>
             </div>
@@ -97,9 +96,9 @@
                 </div>
             </div>
         @endif
-        {{ $books->links('pagination::bootstrap-4') }}
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-10">
+                {{ $books->links('pagination::bootstrap-4') }}
                 <table class="table">
                     <thead>
                     <tr>
@@ -126,7 +125,7 @@
                                 <td>Not available</td>
                             @endif
                             @if(isset($book->author->name) && isset($book->author->last_name))
-                            <td>{{ $book->author->name }} {{ $book->author->last_name }}</td>
+                            <td title="Born in: {{ $book->author->year_of_birth }}">{{ $book->author->name }} {{ $book->author->last_name }}</td>
                             @else
                                 <td>Author is deleted</td>
                             @endif
